@@ -43,9 +43,10 @@ object FailureResponseInterceptor : Interceptor {
         }
 
         //判断 code 是否为 0
-        if (jsonObject["code"].int != 0) {
-            throw BilibiliApiException(gson.fromJson(jsonObject))
-        }
+        // 很多api都没有code字段，这个判断不对
+//        if (jsonObject["code"].int != 0) {
+//            throw BilibiliApiException(gson.fromJson(jsonObject))
+//        }
 
         return response
     }

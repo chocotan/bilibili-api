@@ -1,6 +1,5 @@
 package com.hiczp.bilibili.api.thirdpart.commons;
 
-//用于减少包引入
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more

@@ -17,6 +17,9 @@ private val logger = KotlinLogging.logger {}
 class CommonParamInterceptor(private vararg val additionParams: ParamExpression) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
+        if(!request.url.host.contains("bilibili.com")){
+            return chain.proceed(request)
+        }
         var headers = request.headers
         var httpUrl = request.url
         var body = request.body

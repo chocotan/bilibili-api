@@ -16,7 +16,7 @@ buildscript {
 }
 
 group = 'com.hiczp'
-version = '0.2.3'
+version = '0.2.4-SNAPSHOT'
 description = 'Bilibili Android client API library for Kotlin'
 
 apply plugin: 'kotlin'
@@ -152,4 +152,7 @@ signing {
 
 gradle.taskGraph.whenReady { taskGraph ->
     tasks.signMavenJavaPublication.onlyIf { taskGraph.hasTask tasks.publish }
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }

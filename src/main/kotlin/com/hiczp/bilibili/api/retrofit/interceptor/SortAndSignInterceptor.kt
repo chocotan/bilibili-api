@@ -35,6 +35,16 @@ class SortAndSignInterceptor(private val appSecret: String) : Interceptor {
                         ).build()
             }
 
+            url.queryParameter(Param.ACCESS_KEY) != null -> {
+                val sortedEncodedQuery = url.encodedQuery!!.split('&').sorted().joinToString(separator = "&")
+                request.newBuilder()
+                    .url(url.newBuilder()
+                        .encodedQuery("$sortedEncodedQuery&${Param.SIGN}=${calculateSign(sortedEncodedQuery, appSecret)}")
+                        .build()
+                    ).build()
+            }
+
+
             //在 FormBody 里
             body is FormBody && body.containsEncodedName(Param.APP_KEY) -> {
                 val sortedRaw = body.sortedRaw()
