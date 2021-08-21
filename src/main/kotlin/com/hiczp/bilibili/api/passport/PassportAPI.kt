@@ -20,7 +20,7 @@ interface PassportAPI {
      * 多次错误的登陆尝试后, 服务器将返回 {"ts":1550569982,"code":-105,"data":{"url":"https://passport.bilibili.com/register/verification.html?success=1&gt=b6e5b7fad7ecd37f465838689732e788&challenge=9a67afa4d42ede71a93aeaaa54a4b6fe&ct=1&hash=105af2e7cc6ea829c4a95205f2371dc5"},"message":"验证码错误!"}
      */
     @Suppress("SpellCheckingInspection")
-    @POST("/api/v3/oauth2/login")
+    @POST("/x/passport-login/oauth2/login")
     @FormUrlEncoded
     fun login(
             @Field("username") username: String, @Field("password") password: String,
