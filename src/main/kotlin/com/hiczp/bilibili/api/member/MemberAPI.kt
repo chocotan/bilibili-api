@@ -1,5 +1,6 @@
 package com.hiczp.bilibili.api.member
 
+import com.hiczp.bilibili.api.member.model.AddResponse
 import com.hiczp.bilibili.api.member.model.Pre
 import com.hiczp.bilibili.api.member.model.PreUpload2Response
 import com.hiczp.bilibili.api.member.model.PreUploadResponse
@@ -51,5 +52,5 @@ interface MemberAPI {
         @Query("access_key") accessToken: String,
         @Query("sign") sign: String,
         @Body body: Map<String, @JvmSuppressWildcards Any>
-    ): Deferred<Map<String, @JvmSuppressWildcards Any>>
+    ): Deferred<AddResponse>
 }
